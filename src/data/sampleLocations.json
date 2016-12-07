@@ -1,49 +1,282 @@
 {
-  "London": [
-    {
-      "name": "William IV",
-      "type": "Pub",
-      "address": "7 Shepherdess Walk, London N1 7QE",
-      "latitude": 51.530993,
-      "longitude": -0.092675,
-      "distance": "100m",
-      "picture": ""
-    },
-    {
-      "name": "The Eagle",
-      "type": "Pub",
-      "address": "2 Shepherdess Walk, London, Greater London, N1 7LB",
-      "latitude": 51.528611,
-      "longitude": -0.091704,
-      "distance": "200m",
-      "picture": ""
-    },
-    {
-      "name": "The Shepherdess Café",
-      "type": "British style food",
-      "address": "221 City Rd, London EC1V 1JN",
-      "latitude": 51.528369,
-      "longitude": -0.091630,
-      "distance": "300m",
-      "picture": ""
-    },
-    {
-      "name": "Whitecross Street Market",
-      "type": "Streetfood",
-      "address": "13 Whitecross St, London EC1Y",
-      "latitude": 51.522944,
-      "longitude": -0.092450,
-      "distance": "1km",
-      "picture": ""
-    },
-    {
-      "name": "Coffee Junction",
-      "type": "Meals with Salads, Sandwiches",
-      "address": "42 Provost St, London N1 7SU",
-      "latitude": 51.528874,
-      "longitude": -0.088472,
-      "distance": "300m",
-      "picture": ""
-    }
-  ]
+  "Berlin": {
+    "city": "Berlin",
+    "country": "Germany",
+    "address": "Schützenstraße 6, 10117 Berlin, Germany",
+    "latitude": 52.508725,
+    "longitude": 13.391943,
+    "picture": "https://c1.staticflickr.com/4/3874/14798621115_c161edb240_b.jpg",
+    "places": [
+      {
+        "name": "Chupenga Burritos & Salads",
+        "type": "Mexican",
+        "address": "Mohrenstraße 42, 10117 Berlin, Germany",
+        "latitude": 52.512498,
+        "longitude": 13.394348,
+        "distance": "10m",
+        "description": "Chupenga is home to probably the best burritos in Berlin. Inspired by the Mexican-Californian cuisine, we strive to serve delicious and healthy food fast.",
+        "picture": "http://www.berlin.de/binaries/asset/image_assets/4285545/source/1454403703/418x316/"
+      },
+      {
+        "name": "La Gino 2",
+        "type": "Italian",
+        "address": "Rudi-Dutschke-Straße 20, 10969 Berlin, Germany",
+        "latitude": 52.506963,
+        "longitude": 13.392155,
+        "distance": "240m",
+        "description": "Very good breakfasts for an amazing price!",
+        "picture": "https://www.lokali.de/assets/stores/DGNUhdk4REGZkXIC7mnq4w_n740-6538fd1c3dc8bb4833576560247ff4146520a502fed6d57163c1c24daa683898.jpg"
+      },
+      {
+        "name": "Huong Sen",
+        "type": "Chinesse",
+        "address": "Markgrafenstraße 57, 10117 Berlin, Germany",
+        "latitude": 52.50838,
+        "longitude": 13.393874,
+        "distance": "170m",
+        "description": "Every dish is diferent, wonderful and full of fresh vegetables",
+        "picture": "https://media-cdn.tripadvisor.com/media/photo-s/0a/dd/30/ff/pho-cary.jpg"
+      },
+      {
+        "name": "Caramel",
+        "type": "Meals with Salads, Sandwiches",
+        "address": "Zimmerstraße 26, 10969 Berlin, Germany",
+        "latitude": 52.507654,
+        "longitude": 13.392952,
+        "distance": "160m",
+        "description": "Here everything is fresh, low in fat and thus very easy to prepare - without any additives or preservatives",
+        "picture": "https://media-cdn.tripadvisor.com/media/photo-s/06/8d/1e/8b/cafe-melt.jpg"
+      }
+    ]
+  },
+  "Helsinki": {
+    "city": "Helsinki",
+    "country": "Finland",
+    "address": "Annankatu 34B, 00100 Helsinki, Finland",
+    "latitude": 60.168738,
+    "longitude": 24.934115,
+    "picture": "https://c1.staticflickr.com/1/561/19410642666_224d400c4e_b.jpg",
+    "places": [
+      {
+        "name": "Pjazza",
+        "type": "Restaurant",
+        "address": "Yrjönkatu 18 B, 00120 Helsinki, Finland",
+        "latitude": 60.16561,
+        "longitude": 24.941906,
+        "distance": "600m",
+        "description": "The combined know-how with both international and local experiences in the food industry led to the creation of Pjazza",
+        "picture": "https://thecoffeeshopeconomist.files.wordpress.com/2015/01/pjazza-edit-1.jpg"
+      },
+      {
+        "name": "Tortilla House",
+        "type": "Restaurant",
+        "address": "Urho Kekkosen katu 1, 00100 Helsinki, Finland",
+        "latitude": 60.169281,
+        "longitude": 24.933558,
+        "distance": "130m",
+        "description": "Tortilla House offers a delicious and always fresh made ingredients Fresh Mexia street style kitchen",
+        "picture": "https://media-cdn.tripadvisor.com/media/photo-s/07/77/71/8d/tortilla-house.jpg"
+      },
+      {
+        "name": "Ilves",
+        "type": "Restaurant",
+        "address": "Urho Kekkosen katu 4-6, 00100 Helsinki, Finland",
+        "latitude": 60.168497,
+        "longitude": 24.932971,
+        "distance": "100m",
+        "description": "Ilves opened its doors in 1932 and has ever since been offering authentic food ‘n’ honest rock atmosphere",
+        "picture": "https://media-cdn.tripadvisor.com/media/photo-s/06/f3/fc/13/ilves.jpg"
+      },
+      {
+        "name": "India House",
+        "type": "Restaurant",
+        "address": "Simonsgatan 8, 00100 Helsinki, Finland",
+        "latitude": 60.169025,
+        "longitude": 24.936424,
+        "distance": "150m",
+        "description": "India House is an ambitious Indian-Finnish restaurant, which passion lies withing high-quality ingredients and customer satisfaction",
+        "picture": "https://img.grouponcdn.com/deal/cwzw59GxtdMqHTCApE1UdE/shutterstock_67218640-1000x600/v1/c700x420.jpg"
+      }
+    ]
+  },
+  "London": {
+    "city": "London",
+    "country": "UK",
+    "address": "26-28 Underwood St, London N1 7JQ",
+    "latitude": 51.530245,
+    "longitude": -0.091266,
+    "picture": "https://c1.staticflickr.com/1/677/22173565741_20b005ff9c_k.jpg",
+    "places": [
+      {
+        "name": "William IV",
+        "type": "Pub",
+        "address": "7 Shepherdess Walk, London N1 7QE",
+        "latitude": 51.530993,
+        "longitude": -0.092675,
+        "distance": "100m",
+        "description": "Corner pub with mismatched furniture and worn floorboards, for real ales, burgers and live TV sport.",
+        "picture": "http://www.townfish.com/wp-content/uploads/2016/11/rsz_img_20161109_190348186.jpg"
+      },
+      {
+        "name": "The Eagle",
+        "type": "Gastropub",
+        "address": "2 Shepherdess Walk, London, Greater London, N1 7LB",
+        "latitude": 51.528611,
+        "longitude": -0.091704,
+        "distance": "200m",
+        "description": "Victorian pub namechecked in the rhyme Pop Goes the Weasel, with courtyard garden and weekly quiz",
+        "picture": "http://www.johnmariani.com/archive/2014/140713/theeagle_01.jpg"
+      },
+      {
+        "name": "The Shepherdess Café",
+        "type": "British style food",
+        "address": "221 City Rd, London EC1V 1JN",
+        "latitude": 51.528369,
+        "longitude": -0.09163,
+        "distance": "300m",
+        "description": "Bright, casual haunt with Wi-Fi, sandwiches, snacks, tea & all-day breakfast for eat-in or takeaway.",
+        "picture": "http://www.londonphotos.org/archives/shepherdesscafeplate.jpg"
+      },
+      {
+        "name": "Whitecross Street Market",
+        "type": "Street food",
+        "address": "13 Whitecross St, London EC1Y",
+        "latitude": 51.522944,
+        "longitude": -0.09245,
+        "distance": "1km",
+        "description": "Busy open street food market",
+        "picture": "https://stokeysecretsupper.files.wordpress.com/2011/07/001-whitecross-street-food-busy-market1.jpg"
+      },
+      {
+        "name": "Coffee Junction",
+        "type": "Meals with Salads, Sandwiches",
+        "address": "42 Provost St, London N1 7SU",
+        "latitude": 51.528874,
+        "longitude": -0.088472,
+        "distance": "300m",
+        "description": "A coffee shop with a full menu of healthy salads, lunch dishes & sandwiches",
+        "picture": "https://media-cdn.tripadvisor.com/media/photo-s/05/da/6d/e3/coffee-junction.jpg"
+      }
+    ]
+  },
+  "Munich": {
+    "city": "Munich",
+    "country": "Germany",
+    "address": "Rosa-Bavarese-Straße 3, 80639 München, Germany",
+    "latitude": 48.146936,
+    "longitude": 11.502834,
+    "picture": "https://c1.staticflickr.com/3/2934/14519047033_a0ff241d00_b.jpg",
+    "places": [
+      {
+        "name": "BeirutBeirut",
+        "type": "Meals with Salads, Sandwiches",
+        "address": "Valleystraße 19, 81371 München, Germany",
+        "latitude": 48.11745,
+        "longitude": 11.548621,
+        "distance": "200m",
+        "description": "Most delicious falafel you'll find in Munich",
+        "picture": "https://igx.4sqi.net/img/general/width960/9611470_P9bMjXy7EFv_GBtF8xpxz4Nqxfe1a1d19Ag1QXjrGIw.jpg"
+      }
+    ]
+  },
+  "Stockholm": {
+    "city": "Stockholm",
+    "country": "Sweden",
+    "address": "Drottninggatan 71C, 111 36 Stockholm, Sweden",
+    "latitude": 59.336291,
+    "longitude": 18.058796,
+    "picture": "https://c1.staticflickr.com/2/1567/24217171171_8f48ba57b8_b.jpg",
+    "places": [
+      {
+        "name": "La Neta",
+        "type": "Restaurant",
+        "address": "Barnhusgatan 2, 111 23 Stockholm, Sweden",
+        "latitude": 59.336708,
+        "longitude": 18.058073,
+        "distance": "60m",
+        "description": "Do you like mexican food and are on a budget? this is where you wanna pop in",
+        "picture": "https://bkpk.me/wp-content/uploads/2016/08/DSC_0467.jpg"
+      },
+      {
+        "name": "Hattori Sushi Devil",
+        "type": "Restaurant",
+        "address": "Drottninggatan 85, 111 61 Stockholm, Sweden",
+        "latitude": 59.338558,
+        "longitude": 18.056507,
+        "distance": "300m",
+        "description": "Excellent sushi, very nice atmosphere, and great staff",
+        "picture": "http://media-cdn.tripadvisor.com/media/photo-s/02/82/4c/cd/hattori-sushi-devil.jpg"
+      },
+      {
+        "name": "Le Violon Dingue",
+        "type": "Restaurant",
+        "address": "Olof Palmes gata 12, 111 37 Stockholm, Sweden",
+        "latitude": 59.336342,
+        "longitude": 18.061285,
+        "distance": "200m",
+        "description": "A great spot for vegans/vegetarians to have a lunch to go. It is also organic.",
+        "picture": "http://blogg.101ideer.se/miaohrn/wp-content/uploads/sites/6/2016/02/img_2049.jpg"
+      },
+      {
+        "name": "Prime Burger",
+        "type": "Restaurant",
+        "address": "111 36, Holländargatan 8B, 111 36 Stockholm, Sweden",
+        "latitude": 59.336535,
+        "longitude": 18.060972,
+        "distance": "250m",
+        "description": "Quality is paramount and it takes time to reach perfection. All our burgers are made out of 200 gr fresh ground chuck and briske",
+        "picture": "http://www.primeburger.se/upload/slideshow/41051863.jpg"
+      }
+    ]
+  },
+  "Tampere": {
+    "city": "Tampere",
+    "country": "Finland",
+    "address": "Kuninkaankatu 21, 33210 Tampere, Finland",
+    "latitude": 61.498611,
+    "longitude": 23.757001,
+    "picture": "https://c1.staticflickr.com/9/8538/8613215024_47f3a346f6_b.jpg",
+    "places": [
+      {
+        "name": "Ravintola Katmandu",
+        "type": "Nepalese",
+        "address": "Satakunnankatu 29, Tampere, Finland",
+        "latitude": 61.500119,
+        "longitude": 23.752708,
+        "distance": "400m",
+        "description": "Katmandu Restaurant is a family business, the idea of ​​which is to provide Nepalese food culture in authentic experiences in the best possible quality.",
+        "picture": "http://nepalilainenravintola.com/wp-content/uploads/2014/08/ravintola-kathmandu-2.jpg"
+      },
+      {
+        "name": "Pikkubistro Kattila",
+        "type": "Restaurant",
+        "address": "Hallituskatu 5, Tampere, Finland",
+        "latitude": 61.496619,
+        "longitude": 23.760421,
+        "distance": "400m",
+        "description": "This is a small high-quality bistro that offers tasty food. The best products and all are manufactured by ourselves",
+        "picture": "https://media-cdn.tripadvisor.com/media/photo-s/07/dc/07/64/pikkubistro-kattila.jpg"
+      },
+      {
+        "name": "4vuodenaikaa",
+        "type": "French",
+        "address": "Hallituskatu 10, Tampere, Finland",
+        "latitude": 61.496634,
+        "longitude": 23.758812,
+        "distance": "300m",
+        "description": "Here you can fill your stomach and feel at home in interesting surroundings",
+        "picture": "http://4vuodenaikaapyynikki.fi/wp-content/uploads/2015/08/4Vuodenaikaa-Pyynikki-03-1024x640.jpg"
+      },
+      {
+        "name": "Maka Sushi",
+        "type": "Japanese",
+        "address": "Näsilinnankatu 30, 33200 Tampere, Finland",
+        "latitude": 61.496748,
+        "longitude": 23.754683,
+        "distance": "350m",
+        "description": "We manufacture all sushimme order and only the best ingredients",
+        "picture": "https://kulttulinarismia.files.wordpress.com/2015/08/wp_20150808_17_45_41_pro.jpg"
+      }
+    ]
+  }
 }

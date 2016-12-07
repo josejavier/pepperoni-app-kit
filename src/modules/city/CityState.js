@@ -1,72 +1,86 @@
 import {Map} from 'immutable';
 import {loop, Effects} from 'redux-loop';
-import {generateRandomNumber} from '../../services/randomNumberService';
+import {getPlace, getAnotherPlace} from '../../services/randomResponseService';
+import * as NavigationState from '../../modules/navigation/NavigationState';
 
 // Initial state
 const initialState = Map({
   value: '',
-  loading: false
+  loading: false,
+  place: {}
 });
 
 // Actions
-const INCREMENT = 'CityState/INCREMENT';
-const RESET = 'CityState/RESET';
-const RANDOM_REQUEST = 'CityState/RANDOM_REQUEST';
-const RANDOM_RESPONSE = 'CityState/RANDOM_RESPONSE';
-const SELECT_OFFICE = 'CityState/SELECT_OFFICE';
+const REQUEST_CITY = 'REQUEST_CITY';
+export const RESPONSE_SUCCESS_CITY = 'RESPONSE_SUCCESS_CITY';
+export const RESPONSE_FAILURE_CITY = 'RESPONSE_FAILURE_CITY';
+
+const REQUEST_LOCATION = 'REQUEST_LOCATION';
+export const RESPONSE_SUCCESS_LOCATION = 'RESPONSE_SUCCESS_LOCATION';
+export const RESPONSE_FAILURE_LOCATION = 'RESPONSE_FAILURE_LOCATION';
 
 // Action creators
-export function increment() {
-  return {type: INCREMENT};
-}
-
-export function reset() {
-  return {type: RESET};
-}
-
-export function random() {
+export function selectCity(city) {
   return {
-    type: RANDOM_REQUEST
+    type: REQUEST_CITY,
+    payload: city
   };
 }
 
-export function selectOffice(office) {
+export function retryPlace(city, oldPlace) {
   return {
-    type: SELECT_OFFICE,
-    payload: office
-  };
-}
-
-export async function requestRandomNumber() {
-  return {
-    type: RANDOM_RESPONSE,
-    payload: await generateRandomNumber()
+    type: REQUEST_LOCATION,
+    payload: {
+      city,
+      oldPlace
+    }
   };
 }
 
 // Reducer
 export default function CityStateReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case INCREMENT:
-      return state.update('value', value => value + 1);
-
-    case RESET:
-      return initialState;
-
-    case RANDOM_REQUEST:
+    case REQUEST_CITY:
       return loop(
-        state.set('loading', true),
-        Effects.promise(requestRandomNumber)
+        state
+          .set('loading', true)
+          .set('value', action.payload),
+        Effects.promise(getPlace, action.payload)
       );
+    case RESPONSE_SUCCESS_CITY:
+      return loop(
+          state
+            .set('loading', false)
+            .set('place', action.payload),
+          Effects.constant(NavigationState.pushRoute({
+            key: 'Location',
+            title: state.get('value')
+          }))
+        );
 
-    case RANDOM_RESPONSE:
+    case RESPONSE_FAILURE_CITY:
       return state
         .set('loading', false)
-        .set('value', action.payload);
+        .set('errorMessage', action.payload);
 
-    case SELECT_OFFICE:
+    case REQUEST_LOCATION:
+      return loop(
+        state
+          .set('loading', true)
+          .set('value', action.payload.city),
+        Effects.promise(getAnotherPlace, action.payload.city, action.payload.oldPlace)
+      );
+
+    case RESPONSE_SUCCESS_LOCATION:
+      console.log('RESPONSE_SUCCESS ', action.payload);
       return state
-        .set('value', action.payload);
+        .set('loading', false)
+        .set('place', action.payload);
+
+    case RESPONSE_FAILURE_LOCATION:
+      return state
+        .set('loading', false)
+        .set('errorMessage', action.payload);
 
     default:
       return state;

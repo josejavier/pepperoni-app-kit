@@ -4,7 +4,8 @@ import TabBarButton from '../components/TabBarButton';
 import {
   NavigationExperimental,
   StyleSheet,
-  View
+  View,
+  Platform
 } from 'react-native';
 
 const {PropTypes: NavigationPropTypes} = NavigationExperimental;
@@ -37,12 +38,19 @@ const TabBar = React.createClass({
 const styles = StyleSheet.create({
   navigationBar: {
     position: 'absolute',
-    bottom: 0,
     left: 0,
     right: 0,
     backgroundColor: '#eee',
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    ...Platform.select({
+      ios: {
+        bottom: 0
+      },
+      android: {
+        top: 50
+      }
+    })
   },
   buttonWrapper: {
     flex: 1,

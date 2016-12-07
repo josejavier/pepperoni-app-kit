@@ -5,7 +5,6 @@ export default connect(
   state => ({
     office: state.getIn(['city', 'value']),
     loading: state.getIn(['city', 'loading']),
-    userName: state.getIn(['auth', 'currentUser', 'name']),
-    userProfilePhoto: state.getIn(['auth', 'currentUser', 'picture'])
+    place: state.getIn(['city', 'place'])
   })
 )(CityView);

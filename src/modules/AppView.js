@@ -41,7 +41,7 @@ const AppView = React.createClass({
   render() {
     if (!this.props.isReady) {
       return (
-        <View>
+        <View style={{flex: 1}}>
           <ActivityIndicator style={styles.centered}/>
         </View>
       );

@@ -2,7 +2,9 @@ import React, {PropTypes} from 'react';
 import {
   NavigationExperimental,
   View,
-  StyleSheet
+  StyleSheet,
+  Text,
+  Platform
 } from 'react-native';
 const {
   CardStack: NavigationCardStack,
@@ -13,7 +15,7 @@ import AppRouter from '../AppRouter';
 import TabBar from '../../components/TabBar';
 
 // Customize bottom tab bar height here if desired
-const TAB_BAR_HEIGHT = 50;
+export const TAB_BAR_HEIGHT = 50;
 
 const NavigationView = React.createClass({
   propTypes: {
@@ -37,13 +39,13 @@ const NavigationView = React.createClass({
   // NavigationHeader.title accepts a prop textStyle
   renderHeader(sceneProps) {
     return (
-      <NavigationHeader
+      <NavigationHeader style={styles.navigation}
         {...sceneProps}
         onNavigateBack={this.props.onNavigateBack}
         renderTitleComponent={() => {
           return (
             <NavigationHeader.Title>
-              {sceneProps.scene.route.title}
+              <Text style={styles.title}> {sceneProps.scene.route.title} </Text>
             </NavigationHeader.Title>
           );
         }}
@@ -73,11 +75,11 @@ const NavigationView = React.createClass({
           renderScene={this.renderScene}
         />
         <TabBar
-          height={TAB_BAR_HEIGHT}
-          tabs={tabs}
-          currentTabIndex={tabs.index}
-          switchTab={this.props.switchTab}
-        />
+           height={TAB_BAR_HEIGHT}
+           tabs={tabs}
+           currentTabIndex={tabs.index}
+           switchTab={this.props.switchTab}
+         />
       </View>
     );
   }
@@ -89,7 +91,22 @@ const styles = StyleSheet.create({
   },
   sceneContainer: {
     flex: 1,
-    marginBottom: TAB_BAR_HEIGHT
+    ...Platform.select({
+      ios: {
+        marginBottom: TAB_BAR_HEIGHT
+      },
+      android: {
+        marginTop: TAB_BAR_HEIGHT - 6
+      }
+    })
+  },
+  navigation: {
+    backgroundColor: '#39babd'
+  },
+  title: {
+    flex: 1,
+    color: 'white',
+    fontFamily: 'System'
   }
 });
 

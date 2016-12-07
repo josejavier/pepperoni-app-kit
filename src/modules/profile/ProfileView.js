@@ -6,7 +6,7 @@ import {
   View
 } from 'react-native';
 
-const CounterView = React.createClass({
+const ProfileView = React.createClass({
   propTypes: {
     userName: PropTypes.string,
     userProfilePhoto: PropTypes.string
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: '#C8F4F5'
   },
   userContainer: {
     justifyContent: 'center',
@@ -72,10 +72,10 @@ const styles = StyleSheet.create({
   },
   linkButton: {
     textAlign: 'center',
-    color: '#CCCCCC',
+    color: 'black',
     marginBottom: 10,
     padding: 5
   }
 });
 
-export default CounterView;
+export default ProfileView;

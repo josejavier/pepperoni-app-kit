@@ -9,7 +9,7 @@ describe('CityState', () => {
     const getValue = state => state.getIn(['city', 'value']);
 
     it('should change the value to the city name', () => {
-      const [secondState] = dispatch(initialState, CityStateActions.selectOffice('London'));
+      const [secondState] = dispatch(initialState, CityStateActions.selectCity('London'));
       expect(getValue(secondState)).toBe('London');
     });
   });

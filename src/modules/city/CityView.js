@@ -1,5 +1,4 @@
 import * as CityState from './CityState';
-import * as NavigationState from '../../modules/navigation/NavigationState';
 import React, {PropTypes} from 'react';
 import {
   StyleSheet,
@@ -8,6 +7,7 @@ import {
   Text,
   View,
   ListView,
+  ActivityIndicator,
   Dimensions
 } from 'react-native';
 
@@ -16,101 +16,68 @@ const window = Dimensions.get('window');
 const CityView = React.createClass({
   propTypes: {
     office: PropTypes.string.isRequired,
-    userName: PropTypes.string,
-    userProfilePhoto: PropTypes.string,
+    place: PropTypes.object,
     loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
   },
+
   getInitialState() {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    const cities = require('../../data/sampleLocations.json'); // City offices
     return {
-      dataSource: ds.cloneWithRows(['London', 'Berlin', 'Helsinki', 'Tampere', 'Stockholm', 'Munich'])
+      dataSource: ds.cloneWithRows(cities)
     };
   },
 
-  increment() {
-    this.props.dispatch(CityState.increment());
-  },
-  reset() {
-    this.props.dispatch(CityState.reset());
-  },
-  random() {
-    this.props.dispatch(CityState.random());
-  },
-  selectOffice(office) {
-    this.props.dispatch(CityState.selectOffice(office));
-    this.props.dispatch(NavigationState.pushRoute({
-      key: 'Location',
-      title: 'Location in ' + office
-    }));
-  },
-
-  renderUserInfo() {
-    if (!this.props.userName) {
-      return null;
-    }
-
-    return (
-      <View style={styles.userContainer}>
-        <Image
-          style={styles.userProfilePhoto}
-          source={{
-            uri: this.props.userProfilePhoto,
-            width: 80,
-            height: 80
-          }}
-        />
-        <Text style={styles.linkButton}>
-          Welcome, {this.props.userName}!
-        </Text>
-      </View>
-    );
+  selectCity(city) {
+    this.props.dispatch(CityState.selectCity(city));
   },
 
   renderRow(rowData) {
     return (
       <View style={styles.cityCard}>
-        <TouchableOpacity onPress={() => this.selectOffice(rowData)} style={styles.cityButton}>
-          <Text style={styles.cityText}>
-            {rowData}
-          </Text>
-        </TouchableOpacity>
+        <Image source={{uri: rowData.picture}}>
+          <TouchableOpacity style={styles.cityCard}
+            onPress={() => {
+              if (!this.props.loading) { // To avoid multiples onPress events
+                this.selectCity(rowData.city);
+              }
+            }}
+          >
+            <Text style={styles.cityText}>
+              {rowData.city.toUpperCase()}
+            </Text>
+          </TouchableOpacity>
+        </Image>
       </View>
     );
   },
 
   render() {
+    var spinner = this.props.loading
+      ? (<ActivityIndicator style={styles.spinner} size='large' color='white'/>)
+      : (<View/>);
+
     return (
       <View style={styles.container}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>
-            Swipe and tap to find locations in your city
-          </Text>
-        </View>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderRow}
           style={styles.swiper}
-          vertical={false}
+          vertical={true}
           alwaysBounceVertical={false}
-          horizontal={true}
+          horizontal={false}
           pagingEnabled={true}
           showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
-          bounces={true}
-          loop={true}
+          showsVerticalScrollIndicator={true}
+          bounces={false}
+          loop={false}
         />
+        {spinner}
       </View>
     );
   }
 });
-
-const circle = {
-  borderWidth: 0,
-  borderRadius: 60,
-  width: 120,
-  height: 120
-};
 
 const styles = StyleSheet.create({
   row: {
@@ -119,34 +86,35 @@ const styles = StyleSheet.create({
   swiper: {
     flex: 1
   },
-  title: {
-    fontSize: 15
-  },
-  titleContainer: {
-    alignItems: 'center',
-    top: 50
-  },
   cityCard: {
     flex: 1,
     overflow: 'hidden',
     width: window.width,
-    height: window.height - 150, // TODO define tabbar and nav height
+    height: 200,
+    backgroundColor: 'rgba(0,0,0,.4)',
     alignItems: 'center',
     justifyContent: 'center'
   },
   cityText: {
-    fontSize: 20
-  },
-  cityButton: {
-    ...circle,
-    backgroundColor: '#39babd',
+    fontSize: 28,
+    color: 'white',
+    fontFamily: 'System', //San Francisco for iOS & Roboto for Android
     alignItems: 'center',
-    justifyContent: 'center',
-    margin: 20
+    justifyContent: 'center'
+  },
+  spinner: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: window.width,
+    height: window.height,
+    backgroundColor: 'rgba(0,0,0,.7)'
   },
   container: {
     flex: 1,
-    backgroundColor: 'white'
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#C8F4F5'
   }
 });
 
